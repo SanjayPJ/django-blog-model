@@ -16,6 +16,7 @@
       <th scope="col">date</th>
       <th scope="col">category</th>
       <th scope="col">tags</th>
+      <th scope="col">Comments</th>
     </tr>
   </thead>
   <tbody>
@@ -30,6 +31,16 @@
       {{ tag.name }},
       {% endfor %}
       </td>
+      <td>{% for comment in blog.comments.all %}
+      <div class="alert alert-success">
+      	{{ comment.name }} <br>
+      {{ comment.body }} <br>
+      {{ comment.date }} <br>
+      </div>
+      {% endfor %}
+      </td>
+      
+
     </tr>
     {% endfor %}
   </tbody>
