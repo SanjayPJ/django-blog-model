@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BLOG</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">title</th>
+      <th scope="col">body</th>
+      <th scope="col">date</th>
+      <th scope="col">category</th>
+      <th scope="col">tags</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for blog in blogs %}
+    <tr>
+      <th scope="row">{{ blog.pk }}</th>
+      <td>{{ blog.title }}</td>
+      <td>{{ blog.body }}</td>
+      <td>{{ blog.date }}</td>
+      <td>{{ blog.category }}</td>
+      <td>{% for tag in blog.tags.all %}
+      {{ tag.name }},
+      {% endfor %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">name</th>
+      <th scope="col">body</th>
+      <th scope="col">date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for comment in comments %}
+    <tr>
+      <th scope="row">{{ comment.pk }}</th>
+      <td>{{ comment.name }}</td>
+      <td>{{ comment.body }}</td>
+      <td>{{ comment.date }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+	
+</body>
+</html>
